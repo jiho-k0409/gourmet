@@ -29,16 +29,14 @@ const getList = async (listUrl)=>{
     const res = await fetch(listUrl)
     const res2 = await res.json()
     const res3 = await JSON.parse(res2)
-    const obj = await Object.keys(res3)
-    setTimeout(()=>{
-        for(let i=0;i<obj.length;i++){
-            createHTMLString(res3.item)
+    const obj = await Object.values(res3)
+    console.log(obj)
+        for(const prop of obj){
+            console.log(prop)
+            console.log(typeof(prop))
+            console.log(res3.prop)
+            createHTMLString(prop)
         }
-    },1500)
-    for await(let item of obj){
-            createHTMLString(res3.x)
-    }
-    console.log(obj);
 }
 
 getList(listUrl)
@@ -69,7 +67,13 @@ function createHTMLString(restaurant){
     }
 
 
+async function good(){
+    await create()
+    await getList(listUrl)
+}
 
 
-
-submit.addEventListener('click',create)
+submit.addEventListener('click',()=>{
+    create();
+    getList(listUrl);
+})

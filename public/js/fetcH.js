@@ -8,7 +8,6 @@ let evaluation = document.getElementById("Evaluation")
 let clicked = false;
 
 function create(){
-    console.log('실행');
     fetch("http://localhost:3000/create",{
         method : "POST",
         headers : {
@@ -30,11 +29,7 @@ const getList = async (listUrl)=>{
     const res2 = await res.json()
     const res3 = await JSON.parse(res2)
     const obj = await Object.values(res3)
-    console.log(obj)
         for(const prop of obj){
-            console.log(prop)
-            console.log(typeof(prop))
-            console.log(res3.prop)
             createHTMLString(prop)
         }
 }
@@ -42,8 +37,7 @@ const getList = async (listUrl)=>{
 getList(listUrl)
 
 function createHTMLString(restaurant){
-    console.log('dm')
-    
+    console.log(restaurant)    
         const resName = document.createElement('div');
         const placeName = document.createElement('div');
         const evName = document.createElement('div');
@@ -61,10 +55,11 @@ function createHTMLString(restaurant){
         document.getElementsByClassName('restaurant')[0].appendChild(placeName);
         document.getElementsByClassName('restaurant')[0].appendChild(evName);
         document.getElementsByClassName('restaurant')[0].appendChild(deleteBtn);
-    
-    
-        console.log(restaurant[0],restaurant[1],restaurant[2])
-    }
+        }
+
+function appendComponent(){
+
+}
 
 
 async function good(){
@@ -75,5 +70,6 @@ async function good(){
 
 submit.addEventListener('click',()=>{
     create();
+    
     getList(listUrl);
 })

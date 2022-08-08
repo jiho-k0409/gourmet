@@ -3,7 +3,7 @@ const app = express();
 const ejs = require("ejs");
 
 const fs = require("fs");
-const port = 3000;
+const port = 3020;
 
 app.set('views',__dirname+'/views');
 app.set("view engine","ejs");
@@ -42,6 +42,12 @@ app.get('/list',(req,res)=>{
   res.json(makeJSON())
 })
 
+app.post('/del',(req,res)=>{
+  //console.log(req.body)
+  fs.unlinkSync(`./public/data/${req.body.name}.txt`)
+  console.log(req.body.name+'delete success')
+})
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 })
@@ -57,7 +63,7 @@ function crawlingData(){
     articleObj =[splitedText[0],splitedText[1],splitedText[2]];
     
     objs.push(articleObj);
-    console.log(objs)
+    //console.log(objs)
   });
 }
 
@@ -66,7 +72,7 @@ function makeJSON(){
   for(var i=0;i<objs.length;i++){
     willJSON[`restaurant${i}`] = objs[i];
   };
-  console.log(i)
+  //console.log(i)
   let alreadyJSON={};
   alreadyJSON = JSON.stringify(willJSON);
   return alreadyJSON

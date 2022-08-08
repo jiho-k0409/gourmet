@@ -1,6 +1,10 @@
+body{
+    text-align: center;
+}
+
 .restaurant{
     display: grid;
-
+    grid-row-gap: 20px;
     grid-template-columns: 1fr 1fr 5fr 1fr;
 }
 
@@ -15,4 +19,33 @@
 }
 .search{
     display: inline;
+}
+
+h1{
+    color: #334d7b;
+}
+
+.delBtn{
+    background-color: #334d7b;
+    color: white;
+    border-radius: 20px;
+    border : none;
+}
+
+.restaurant > div{
+    border-bottom: solid;
+    border-bottom-width: 0.5px;
+    border-color: #334d7b;
+}
+
+.btn-open-popup{
+    margin-top: 20px;
+    width: 80%;
+    height: 30px;
+    text-align: center;
+    background-color: #334d7b;
+    border-width: 0px;
+    border-radius: 40px;
+    color: white;
+    font-size: 30px;
 }

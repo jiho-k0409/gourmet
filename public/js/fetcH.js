@@ -39,7 +39,9 @@ const getList = async (listUrl) => {
 getList(listUrl)
 
 function createHTMLString(restaurant) {
-    const resName = document.createElement('div');
+    const resName = document.createElement('a');
+    resName.setAttribute("href",`http://google.com/search?query=${restaurant[0]}`);
+    resName.setAttribute("target","_blank");
     const placeName = document.createElement('div');
     const evName = document.createElement('div');
     const deleteBtn = document.createElement('button');

@@ -32,7 +32,7 @@ h1{
     border : none;
 }
 
-.restaurant > div{
+.restaurant > div, a, button{
     border-bottom: solid;
     border-bottom-width: 0.5px;
     border-color: #334d7b;
@@ -48,4 +48,10 @@ h1{
     border-radius: 40px;
     color: white;
     font-size: 30px;
+}
+
+a{
+    background-color: #334d7b;
+    color: white;
+    text-decoration: none;
 }
